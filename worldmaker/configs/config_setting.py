@@ -31,7 +31,7 @@ class ConfigGroups:
         for key, value in default_paths.items():
             self.settings["default_settings"]["COMMON"][key]=kwargs.get(key, value)
     def export_json(self,path=None):
-        path=path if not path is None else self.config_path
+        path = path if path is not None else self.config_path
         for k,v in self.settings.items():
             with open(os.path.join(self.config_path,f"{k}.json"),"w") as file:
                 json.dump(v,file)

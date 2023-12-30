@@ -61,7 +61,7 @@ class TaxonData:
             values=(record[i] if i<len(record) else 'Unknown' for i in range(self.keys))
         else:
             raise TypeError("Not valid type.")
-        command=f"INSERT INTO Taxon {str(tuple(self.keys))} VALUES {str(values)};"
+        command = f"INSERT INTO Taxon {tuple(self.keys)} VALUES {str(values)};"
         self.execute(command)
         self.cursor.commit()
         
